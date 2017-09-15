@@ -44,7 +44,7 @@ def do_search(query_text, fieldname, output_format):
     df3 = pd.DataFrame({fieldname.lower(): flat_list})
     df4 = df3[[fieldname.lower()]].groupby([fieldname.lower()]).size().reset_index(name='count').sort_values(['count'], ascending=0)
     if output_format == 'json':
-        out = df4.to_json(orient='records')
+        out = df4.to_json(orient='index')
     else:
         out = df4.to_html(escape=False, index=False)
 
