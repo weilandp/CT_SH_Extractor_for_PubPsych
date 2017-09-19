@@ -46,7 +46,7 @@ def do_search(query_text, fieldname, output_format):
     if output_format == 'json':
         out = df4.to_json(orient='index')
     else:
-        out = df4.to_html(escape=False, index=False)
+        out = df4[:50].to_html(escape=False, index=False)
 
     if not out:
         return 0
